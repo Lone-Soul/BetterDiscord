@@ -2,6 +2,10 @@ export default {
     description: "Temporary relief to those on MacOS.",
     changes: [
         {
+          title: "You are running Lone_Soul's modified version :)",
+          items: [],
+        },
+        {
             title: "Fixes",
             type: "fixed",
             items: [
