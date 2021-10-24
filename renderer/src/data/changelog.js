@@ -1,31 +1,30 @@
 export default {
-    description: "Temporary relief to those on MacOS.",
-    changes: [
-        {
-          title: "You are running Lone_Soul's modified version :)",
-          items: [],
-        },
-        {
-            title: "Fixes",
-            type: "fixed",
-            items: [
-                "Fixed open plugin/theme folder on Mac.",
-                "Fixed screensharing, audio and video on Mac.",
-                "Fixed dropdowns, and custom css page not opening. Thanks, Strencher. (https://github.com/Strencher)",
-                "Fixed popout editor not working when custom css was disabled. Thanks, Qb. (https://github.com/QbDesu)",
-                "Fixed crashing for some users when duplicate files were found. Thanks, Strencher. (https://github.com/Strencher)"
-            ]
-        },
-        {
-            title: "Power Users & Developers",
-            type: "improved",
-            items: [
-                "Plugin data retrieval will now return the correct values instead of `undefined` for falsey values.",
-                "Plugin data can now be set before being retrieved.",
-                "The `Patcher` in `BdApi` now has a `getPatchesByCaller` function which will return all the patches corresponding to a caller string.",
-                "Plugins that fail on initial load will no longer be forever in a broken state. Thanks, Strencher. (https://github.com/Strencher)",
-                "React DevTools should now work on Linux! Thanks, Qb. (https://github.com/QbDesu)"
-            ]
-        }
-    ]
+  description:
+    "Many new crowdsourced translations added, shout-out to our contributors on POEditor!",
+  changes: [
+    {
+      title: "You are running Lone_Soul's modified version :)",
+      items: [],
+    },
+    {
+      title: "New Translations",
+      type: "added",
+      items: [
+        "Czech, Spanish, Hindi (partial), Italian, Dutch, Norwegian (partial), Portuguese (PT), Romanian, Russian, Turkish",
+        "Languages also fallback to English when a translation does not exist.",
+      ],
+    },
+    {
+      title: "Fixes",
+      type: "fixed",
+      items: [
+        "Canary loading no longer blocked by changed class names.",
+        "The following were all thanks to Strencher! (https://github.com/Strencher)",
+        "The public servers button is back!",
+        "Guild related classes are back too!",
+        "Fixed webpack module search on Canary.",
+        "Fixed `window.webpackJsonp` related plugin issues via polyfill. Note: This will be removed in future versions.",
+      ],
+    },
+  ],
 };

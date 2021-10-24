@@ -18,6 +18,7 @@ import IPC from "./ipc";
 import LoadingIcon from "../loadingicon";
 import Styles from "../styles/index.css";
 import Editor from "./editor";
+import {WebpackModules} from "modules";
 
 export default new class Core {
     async startup() {
@@ -67,7 +68,7 @@ export default new class Core {
         for (const module in Builtins) {
             Builtins[module].initialize();
         }
-
+        this.polyfillWebpack();
         Logger.log("Startup", "Loading Plugins");
         // const pluginErrors = [];
         const pluginErrors = PluginManager.initialize();
@@ -90,15 +91,27 @@ export default new class Core {
         }
     }
 
+    polyfillWebpack() {
+        if (typeof(webpackJsonp) !== "undefined") return;
+
+        window.webpackJsonp = [];
+        window.webpackJsonp.length = 10000; // In case plugins are waiting for that.
+        window.webpackJsonp.flat = () => window.webpackJsonp;
+        // eslint-disable-next-line no-empty-pattern
+        window.webpackJsonp.push = ([[], module, [[id]]]) => {
+            return module[id]({}, {}, WebpackModules.require);
+        };
+    }
+
     waitForGuilds() {
         // TODO: experiment with waiting for CONNECTION_OPEN event instead
         const GuildClasses = DiscordModules.GuildClasses;
         return new Promise(resolve => {
             const checkForGuilds = function () {
                 if (document.readyState != "complete") setTimeout(checkForGuilds, 100);
-                const wrapper = GuildClasses.wrapper.split(" ")[0];
+                const guildList = GuildClasses.guilds.split(" ")[0];
                 const guild = GuildClasses.listItem.split(" ")[0];
-                if (document.querySelectorAll(`.${wrapper} .${guild}`).length > 0) return resolve();
+                if (document.querySelectorAll(`.${guildList} .${guild}`).length > 0) return resolve();
                 setTimeout(checkForGuilds, 100);
             };
 
