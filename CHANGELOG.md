@@ -2,6 +2,53 @@
 
 This changelog starts with the restructured 1.0.0 release that happened after context isolation changes. The changelogs here should more-or-less mirror the ones that get shown in the client but probably with less formatting and pizzazz.
 
+## 1.5.1
+
+### Added
+- `Number` settings component using builtin `input[type=number]`
+- Settings for monaco editor: font size, line numbers, minimap, whitespace, quick suggestions, tooltips
+
+### Removed
+
+### Changed
+
+### Fixed
+- Fixed `GuildComponent` throwing errors
+- Fixed public servers button disappearing when guilds list rerenders
+- Fixed plugin compilation error not pointing to console
+- Fixed plugins with no `@name` attempting to load
+
+## 1.5.0
+
+### Added
+- `appSettings` override and corresponding toggle to enable DevTools (Thanks [Kyza](https://github.com/Kyza))
+- `bd-transparency` class is added to `document.body` when window transparency is enabled (Thanks [Strencher](https://github.com/Strencher))
+
+### Removed
+- Removed all appearance related `Builtin`s including: 24 Hour Timestamps, Colored Text, Hide GIF/Gift Button, and MinimalMode
+
+### Changed
+
+### Fixed
+- Fixed `DebugLogs` throwing errors or not writing `null`, `undefined`, and circular objects
+- Fixed guild utility classes not being added
+- Fixed toast location
+
+## 1.4.0
+
+### Added
+- Notices API (Thanks [Strencher](https://github.com/Strencher))
+
+### Removed
+
+### Changed
+
+### Fixed
+- Fixed outdates styles and classnames (Thanks [Strencher](https://github.com/Strencher))
+- Fixed guild list classes being overwritten causing the public server button to not show
+- Fixed finding the wrong module for `ActionTypes` in custom css module
+- Fixed not removing customcss upon disable
+- Fixed media keys commandline switch not being applied
 
 ## 1.3.0
 
