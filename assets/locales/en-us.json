@@ -198,6 +198,10 @@
                 "bttv": {
                     "name": "BetterTTV",
                     "note": "Show emotes from BTTV"
+                },
+                "seventv": {
+                    "name": "7TV",
+                    "note": "Show emotes from 7TV"
                 }
             }
         }

@@ -15,17 +15,19 @@ const EmoteURLs = {
     TwitchSubscriber: new FormattableString(`https://static-cdn.jtvnw.net/emoticons/v1/{{id}}/1.0`),
     FrankerFaceZ: new FormattableString(`https://cdn.frankerfacez.com/emoticon/{{id}}/1`),
     BTTV: new FormattableString(`https://cdn.betterttv.net/emote/{{id}}/1x`),
+    SevenTV: new FormattableString(`https://cdn.7tv.app/emote/{{id}}/1x`)
 };
 
 const Emotes = {
     TwitchGlobal: {},
     TwitchSubscriber: {},
     BTTV: {},
-    FrankerFaceZ: {}
+    FrankerFaceZ: {},
+    SevenTV: {}
 };
 
 const blocklist = [];
-const overrides = ["twitch", "subscriber", "bttv", "ffz"];
+const overrides = ["twitch", "subscriber", "bttv", "ffz", "seventv"];
 const modifiers = ["flip", "spin", "pulse", "spin2", "spin3", "1spin", "2spin", "3spin", "tr", "bl", "br", "shake", "shake2", "shake3", "flap"];
 
  export default new class EmoteModule extends Builtin {
@@ -48,6 +50,7 @@ const modifiers = ["flip", "spin", "pulse", "spin2", "spin3", "1spin", "2spin", 
     get TwitchSubscriber() {return Emotes.TwitchSubscriber;}
     get BTTV() {return Emotes.BTTV;}
     get FrankerFaceZ() {return Emotes.FrankerFaceZ;}
+    get SevenTV() {return Emotes.SevenTV;}
     get blocklist() {return blocklist;}
     get favorites() {return this.favoriteEmotes;}
     getUrl(category, name) {return EmoteURLs[category].format({id: Emotes[category][name]});}
@@ -151,6 +154,9 @@ const modifiers = ["flip", "spin", "pulse", "spin2", "spin3", "1spin", "2spin", 
                         }
                         else if (emoteOverride === "ffz") {
                             if (Emotes.FrankerFaceZ[emoteName]) current = "FrankerFaceZ";
+                        }
+                        else if (emoteOverride === "seventv") {
+                          if (Emotes.SevenTV[emoteName]) current = "SevenTV";
                         }
 
                         if (!Emotes[current][emoteName]) continue;

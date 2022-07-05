@@ -21,7 +21,8 @@ export default [
             {type: "switch", id: "twitchglobal", value: true},
             {type: "switch", id: "twitchsubscriber", value: false},
             {type: "switch", id: "frankerfacez", value: true},
-            {type: "switch", id: "bttv", value: true}
+            {type: "switch", id: "bttv", value: true},
+            {type: "switch", id: "seventv", value: true}
         ]
     }
 ];
