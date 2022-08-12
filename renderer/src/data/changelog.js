@@ -1,5 +1,6 @@
+// fixed, improved, added, progress
 export default {
-    description: "Improvements coming soon!",
+    description: "Sorry for all the updates lately, Discord has been making a lot of internal changes!",
     changes: [
         { 
             title: "You are running Lone_Soul's modified version :)",
@@ -9,7 +10,7 @@ export default {
             title: "Fixes",
             type: "fixed",
             items: [
-                "Injection on Canary is fixed!"
+                "Fixed an issue where BD wouldn't load on canary/ptb.",
             ]
         }
     ]
